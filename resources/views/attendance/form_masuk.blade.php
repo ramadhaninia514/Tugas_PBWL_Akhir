@@ -111,7 +111,7 @@
 
 <div class="attendance-container">
     <h2>Absensi Masuk</h2>
-    <p>Pegawai Non-ASN - Dinas Kominfo Kota Binjai</p>
+    <p>Tentor Bimbingan Belajar EDULAB</p>
 
     {{-- Alert Session --}}
     @if(session('success'))
@@ -135,18 +135,21 @@
     <form method="POST" action="{{ route('form.masuk.store') }}">
         @csrf
 
-        <div class="form-group mb-3">
-            <label for="nama">Nama:</label>
-            <select name="nama" id="nama" class="form-control select2" required>
-                <option value="">-- Pilih Nama --</option>
-                @foreach($users as $user)
-                    <option value="{{ $user->nama }}">{{ $user->nama }}</option>
-                @endforeach
-            </select>
-        </div>
+<div class="form-group mb-3">
+    <label for="nama">Nama Tentor:</label>
+    <input
+        type="text"
+        name="nama"
+        id="nama"
+        class="form-control"
+        placeholder="Masukkan nama tentor"
+        required
+    >
+</div>
 
-        <div class="form-group mb-3">
-            <label for="tanggal">Tanggal</label>
+
+             <div class="form-group mb-3">
+            <label for="tanggal">Tanggal </label>
             <input type="date" class="form-control" name="tanggal" value="{{ date('Y-m-d') }}" readonly>
         </div>
 
@@ -158,21 +161,21 @@
         <div class="form-group mb-3">
             <label for="status">Status Kehadiran</label>
             <select name="status" class="form-control" required>
-                <option value="">-- Pilih Status --</option>
+                <option value="">-- Pilih --</option>
                 <option value="Hadir" {{ old('status') == 'Hadir' ? 'selected' : '' }}>Hadir</option>
                 <option value="Izin" {{ old('status') == 'Izin' ? 'selected' : '' }}>Izin</option>
                 <option value="Sakit" {{ old('status') == 'Sakit' ? 'selected' : '' }}>Sakit</option>
-                <option value="Tanpa Keterangan" {{ old('status') == 'Tanpa Keterangan' ? 'selected' : '' }}>Tanpa Keterangan</option>
+                <option value="Tidak Hadir" {{ old('status') == 'Tidak Hadir' ? 'selected' : '' }}>Tidak Hadir</option>
             </select>
         </div>
 
         <div class="form-group mb-3">
-            <label for="keterangan">Keterangan</label>
+            <label for="keterangan">Keterangan Mengajar </label>
             <textarea name="keterangan" class="form-control" rows="2"></textarea>
         </div>
 
         <div class="form-group mb-4">
-            <label for="foto_muka">Foto Muka (Webcam)</label>
+            <label for="foto_muka">Foto Kehadiran Tentor</label>
             <input type="hidden" name="foto_muka" id="foto_muka" required>
             <div class="camera-box">
                 <img id="preview" alt="Preview Foto">
@@ -188,17 +191,8 @@
     </form>
 </div>
 
-<!-- jQuery dan Select2 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#nama').select2({
-            placeholder: "Pilih Nama Pegawai",
-            width: '100%'
-        });
-    });
 
     // Webcam script
     const video = document.getElementById('video');

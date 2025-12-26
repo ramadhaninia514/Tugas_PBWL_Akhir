@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login Admin | Kominfo Binjai</title>
+  <title>Login Admin</title>
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
   <style>
     body {
@@ -88,9 +88,9 @@
 <body>
 
   <div class="login-box">
-    <img src="{{ asset('img/logo-kominfo.png') }}" alt="Logo Kominfo">
+    <img src="{{ asset('img/edulab.png') }}" alt="Logo Edulab">
     <h2>Login Admin</h2>
-    <p>Sistem Absensi Non-ASN<br>Dinas Kominfo Kota Binjai</p>
+    <p>Sistem Informasi Absensi<br>Tentor Bimbingan Belajar EDULAB</p>
 
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -119,7 +119,7 @@
     <a href="{{ url('/') }}" class="btn btn-secondary">← Kembali ke Website</a>
 
     <footer>
-      &copy; {{ date('Y') }} Dinas Kominfo Kota Binjai
+      &copy; {{ date('Y') }} EDULAB Binjai
     </footer>
   </div>
 

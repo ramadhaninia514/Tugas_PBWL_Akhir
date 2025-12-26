@@ -137,7 +137,7 @@
 <div class="container-rekap">
     <div class="sidebar">
         <div>
-            <h2>SIPENA</h2>
+            <h2>SI-ABSEN EDULAB</h2>
             <a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
             <a href="{{ route('admin.rekap') }}"><i class="fas fa-file-alt"></i> Rekap Absensi</a>
         </div>
@@ -151,7 +151,7 @@
 
     <div class="main-content">
         <div class="card">
-            <h3>Rekapitulasi Absensi Non-ASN</h3>
+            <h3>Rekapitulasi Absensi Tentor</h3>
 
             <!-- Form Filter -->
             <form method="GET" action="{{ route('admin.rekap') }}" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -192,9 +192,10 @@
                         <th>Jam Pulang</th>
                         <th>Status</th>
                         <th>Keterangan</th>
+                        <th>Foto</th>   
                     </tr>
                 </thead>
-                <tbody>
+                    <tbody>
                     @foreach($dataMasuk as $masuk)
                         @php
                             $pulang = $dataPulang->firstWhere('nama', $masuk->nama);
@@ -206,15 +207,71 @@
                             <td>{{ $pulang->jam_pulang ?? '-' }}</td>
                             <td>{{ $masuk->status }}</td>
                             <td>{{ $masuk->keterangan ?? '-' }}</td>
+
+                            <!-- FOTO KEHADIRAN -->
+                            <td style="text-align:center;">
+                                @if($masuk->foto_muka)
+                                    <img 
+                                        src="{{ $masuk->foto_muka }}"
+                                        width="60"
+                                        height="60"
+                                        style="
+                                            border-radius: 50%;
+                                            object-fit: cover;
+                                            border: 2px solid #3399ff;
+                                            cursor: pointer;
+                                        "
+                                        onclick="previewFoto('{{ $masuk->foto_muka }}')"
+                                    >
+                                @else
+                                    <span style="color:#999;">-</span>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
-                </tbody>
+                    </tbody>
             </table>
+            <!-- Modal Preview Foto -->
+            <div id="fotoModal" style="
+                display:none;
+                position:fixed;
+                top:0; left:0;
+                width:100%; height:100%;
+                background:rgba(0,0,0,0.6);
+                justify-content:center;
+                align-items:center;
+                z-index:2000;
+            ">
+                <div style="background:white; padding:20px; border-radius:10px;">
+                    <img id="fotoPreview" style="max-width:300px; border-radius:10px;">
+                    <br><br>
+                    <button onclick="tutupFoto()" style="
+                        padding:8px 16px;
+                        border:none;
+                        background:#3399ff;
+                        color:white;
+                        border-radius:5px;
+                    ">
+                        Tutup
+                    </button>
+                </div>
+            </div>
 
             <!-- Pagination -->
             <div>
                 {{ $dataMasuk->links('pagination::bootstrap-5') }}
             </div>
+            <script>
+                function previewFoto(src) {
+                    document.getElementById('fotoPreview').src = src;
+                    document.getElementById('fotoModal').style.display = 'flex';
+                }
+
+                function tutupFoto() {
+                    document.getElementById('fotoModal').style.display = 'none';
+                }
+                </script>
+
         </div>
     </div>
 </div>

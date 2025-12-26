@@ -13,17 +13,16 @@ class AbsensiController extends Controller
 {
     // ================== TAMPILKAN FORM ===================
 
-    public function formMasuk()
-    {
-        $users = Pegawai::all(); // Ambil semua pegawai
-        return view('attendance.form_masuk', compact('users'));
-    }
+public function formMasuk()
+{
+    return view('attendance.form_masuk');
+}
 
-    public function formPulang()
-    {
-        $users = Pegawai::all(); // Ambil semua pegawai
-        return view('attendance.form_pulang', compact('users'));
-    }
+public function formPulang()
+{
+    return view('attendance.form_pulang');
+}
+
 
     // ================== SIMPAN DATA ABSEN MASUK ===================
 

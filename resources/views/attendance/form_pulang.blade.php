@@ -110,8 +110,8 @@
 </style>
 
 <div class="attendance-container">
-    <h2>Absensi Pulang</h2>
-    <p>Pegawai Non-ASN - Dinas Kominfo Kota Binjai</p>
+    <h2>Absensi Pulang </h2>
+    <p>Tentor Bimbingan Belajar EDULAB</p>
 
     {{-- Alert Session --}}
     @if(session('success'))
@@ -135,17 +135,20 @@
     <form method="POST" action="{{ route('form.pulang.store') }}">
         @csrf
 
-        <div class="form-group mb-3">
-            <label for="nama">Nama:</label>
-            <select name="nama" id="nama" class="form-control select2" required>
-                <option value="">-- Pilih Nama --</option>
-                @foreach($users as $user)
-                    <option value="{{ $user->nama }}">{{ $user->nama }}</option>
-                @endforeach
-            </select>
-        </div>
+<div class="form-group mb-3">
+    <label for="nama">Nama Tentor:</label>
+    <input
+        type="text"
+        name="nama"
+        id="nama"
+        class="form-control"
+        placeholder="Masukkan nama tentor"
+        required
+    >
+</div>
 
-        <div class="form-group mb-3">
+
+               <div class="form-group mb-3">
             <label for="tanggal">Tanggal</label>
             <input type="date" class="form-control" name="tanggal" value="{{ date('Y-m-d') }}" readonly>
         </div>
@@ -158,34 +161,11 @@
         <input type="hidden" name="status" value="Hadir">
         <input type="hidden" name="keterangan" value="Absen Pulang">
 
-        <div class="form-group mb-4">
-            <label for="foto_muka">Foto Muka Saat Pulang (Webcam)</label>
-            <input type="hidden" name="foto_muka" id="foto_muka" required>
-            <div class="camera-box">
-                <img id="preview" alt="Preview Foto">
-                <br>
-                <video id="video" autoplay></video>
-                <canvas id="canvas" width="300" height="225"></canvas>
-                <br>
-                <button type="button" onclick="ambilFoto()" class="btn btn-secondary">📸 Ambil Foto</button>
-            </div>
-        </div>
 
-        <button type="submit" class="btn btn-primary">✅ Simpan Absensi Pulang</button>
+        <button type="submit" class="btn btn-primary">✅ Simpan </button>
     </form>
 </div>
 
-<!-- jQuery dan Select2 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('#nama').select2({
-            placeholder: "Pilih Nama Pegawai",
-            width: '100%'
-        });
-    });
 
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');

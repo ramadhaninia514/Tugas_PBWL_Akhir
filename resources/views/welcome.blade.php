@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sistem Absensi Non-ASN - Dinas Kominfo Binjai2</title>
+  <title>Sistem Absensi Tentor - EDULAB Binjai2</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -48,8 +48,8 @@
 
     <!-- Logo -->
     <a href="index.html" class="logo d-flex align-items-center me-auto text-white text-decoration-none">
-      <img src="img/logo-kominfo.png" alt="Logo Kominfo" style="height: 40px; margin-right: 10px;">
-      <h1 class="sitename mb-0" style="color: #ffffff;">SIPENA</h1>
+      <img src="img/edulab.png" alt="Logo Kominfo" style="height: 40px; margin-right: 10px;">
+      <h1 class="sitename mb-0" style="color: #ffffff;">SI-ABSEN EDULAB</h1>
     </a>
 
     <!-- Menu -->
@@ -57,7 +57,7 @@
       <ul class="d-flex list-unstyled mb-0">
         <li><a href="#hero" class="nav-link px-3 text-white">Home</a></li>
         <li><a href="#about" class="nav-link px-3 text-white">Informasi</a></li>
-        <li><a href="#contact" class="nav-link px-3 text-white">Kontak</a></li>
+        <li><a href="#footer" class="nav-link px-3 text-white">Kontak</a></li>
        <li><a href="{{ route('admin.login') }}" class="btn btn-outline-light ms-3 px-4 py-1 rounded-0" 
        style="border: 2px solid white;">Login</a></li>
       </ul>
@@ -76,12 +76,12 @@
   <img src="{{ asset('img/hero-bg.jpg') }}" data-aos="fade-in">
 
   <div class="container d-flex flex-column align-items-center">
-    <h2 data-aos="fade-up" data-aos-delay="100">Sistem Absensi Non-ASN</h2>
-    <p data-aos="fade-up" data-aos-delay="200">Sistem ini digunakan untuk mencatat kehadiran pegawai Non-ASN di lingkungan Dinas Komunikasi dan Informatika Kota Binjai secara real-time dan akurat.</p>
+    <h2 data-aos="fade-up" data-aos-delay="100">Sistem Informasi Absensi Tentor di EDULAB Binjai</h2>
+    <p data-aos="fade-up" data-aos-delay="200">Sistem ini digunakan untuk mencatat dan memantau kehadiran tentor dalam kegiatan mengajar di bimbingan belajar Edulab secara terkomputerisasi dan terstruktur</p>
     
     <!-- ✅ Tombol Absen Masuk & Pulang -->
     <div class="d-flex gap-3 mt-4" data-aos="fade-up" data-aos-delay="300">
-    <a href="{{ route('form.masuk.store') }}" class="btn btn-success px-4 py-2 rounded">Absen Masuk</a>
+    <a href="{{ route('form.masuk.store') }}" class="btn btn-success px-4 py-2 rounded">Absen Hadir</a>
     <a href="{{ route('form.pulang.store') }}" class="btn btn-danger px-4 py-2 rounded">Absen Pulang</a>
 </div>
 
@@ -99,14 +99,13 @@
       <!-- Teks -->
       <div class="col-lg-12" data-aos="fade-up" data-aos-delay="50">
         <span class="badge rounded-pill px-3 py-2 mb-3" style="background:#e7f0ff; color:#0b5ed7;">
-          Sistem Absensi Non-ASN
+          Sistem Absensi Tentor EDULAB
         </span>
-        <h2 class="fw-bold mb-3" style="letter-spacing:.2px;">Efisien, Transparan, & Digital</h2>
         <p class="mb-3">
-          Sistem ini dibuat untuk mendukung tata kelola kehadiran pegawai Non-ASN secara efisien, transparan, dan digital.
+         Sistem ini dirancang untuk mencatat dan memantau kehadiran tentor dalam kegiatan mengajar di bimbingan belajar Edulab secara terstruktur dan terkomputerisasi.
         </p>
         <p class="mb-4">
-          Melalui fitur pencatatan otomatis, verifikasi wajah, dan pelaporan harian, sistem ini membantu monitoring absensi lebih mudah dan dapat diakses oleh admin secara langsung.
+        Melalui pencatatan waktu kehadiran secara digital, sistem ini membantu pengelola Edulab dalam mengelola data kehadiran tentor secara lebih tertib dan efisien.
         </p>
 
         <!-- Keunggulan (grid rapi) -->
@@ -117,8 +116,8 @@
                 <i class="bi bi-emoji-smile-upside-down"></i>
               </div>
               <div>
-                <h6 class="mb-1">Verifikasi Wajah</h6>
-                <small class="text-muted">Mengurangi manipulasi kehadiran.</small>
+                <h6 class="mb-1">Absensi Mengajar Tentor</h6>
+                <small class="text-muted">Pencatatan kehadiran tentor Edulab saat kegiatan mengajar.</small>
               </div>
             </div>
           </div>
@@ -128,8 +127,8 @@
                 <i class="bi bi-shield-check"></i>
               </div>
               <div>
-                <h6 class="mb-1">Penyimpanan Aman</h6>
-                <small class="text-muted">Data tersimpan & siap diakses kapan saja.</small>
+                <h6 class="mb-1">Jadwal Mengajar</h6>
+                <small class="text-muted">Pengelolaan jadwal mengajar tentor berdasarkan mata pelajaran.</small>
               </div>
             </div>
           </div>
@@ -139,8 +138,8 @@
                 <i class="bi bi-speedometer2"></i>
               </div>
               <div>
-                <h6 class="mb-1">Terintegrasi Dashboard</h6>
-                <small class="text-muted">Pemantauan real-time oleh admin.</small>
+                <h6 class="mb-1">Rekap Kehadiran</h6>
+                <small class="text-muted">Laporan kehadiran tentor harian dan bulanan.</small>
               </div>
             </div>
           </div>
@@ -150,16 +149,15 @@
                 <i class="bi bi-check2-circle"></i>
               </div>
               <div>
-                <h6 class="mb-1">Operasional Ringan</h6>
-                <small class="text-muted">Antarmuka sederhana & responsif.</small>
+                <h6 class="mb-1">Akses Mudah</h6>
+                <small class="text-muted">Antarmuka sederhana dan mudah digunakan.</small>
               </div>
             </div>
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          Sistem ini merupakan bagian dari komitmen <strong>Dinas Kominfo Binjai</strong>
-          dalam menerapkan digitalisasi pelayanan kepegawaian.
+          Sistem ini dikembangkan untuk mendukung pengelolaan kehadiran tentor di bimbingan belajar Edulab berbasis teknologi informasi.
         </p>
       </div>
 
@@ -197,35 +195,18 @@
       <div class="col-md-6 col-lg-6 mb-3">
         <h6 class="fw-bold mb-2 text-white">Kontak Kami</h6>
         <ul class="list-unstyled mb-0 text-white">
-          <li><i class="bi bi-geo-alt-fill me-2"></i>Jalan Kartini, Kec. Binjai Kota</li>
-          <li><i class="bi bi-geo-fill me-2"></i>Binjai, Sumatera Utara 20741</li>
+          <li><i class="bi bi-geo-alt-fill me-2"></i>Jalan Ksatria No.38, Satria</li>
+          <li><i class="bi bi-geo-fill me-2"></i>Binjai, Sumatera Utara 20714</li>
           <li><i class="bi bi-telephone-fill me-2"></i>(061) 123456</li>
-          <li><i class="bi bi-envelope-fill me-2"></i>admin@kominfo.go.id</li>
+          <li><i class="bi bi-envelope-fill me-2"></i>EDULAB.ac.id</li>
         </ul>
       </div>
-
-      <!-- Ikuti Kami -->
-      <div class="col-md-6 col-lg-6 mb-3">
-        <h6 class="fw-bold mb-2 text-white">Ikuti Kami</h6>
-        <div class="d-flex flex-wrap">
-          <a href="https://www.facebook.com/diskominfokotabinjai/?locale=id_ID" target="_blank" rel="noopener noreferrer" class="me-3 text-white fs-5">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/dinaskominfokotabinjai/" target="_blank" rel="noopener noreferrer" class="me-3 text-white fs-5">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a href="https://www.youtube.com/@diskominfokotabinjai6252" target="_blank" rel="noopener noreferrer" class="text-white fs-5">
-            <i class="bi bi-youtube"></i>
-          </a>
-        </div>
-      </div>
-
     </div>
 
     <!-- Garis Bawah & Hak Cipta -->
     <div class="row mt-3 pt-3 border-top border-light">
       <div class="col text-center small text-white">
-        &copy; {{ date('Y') }} Dinas Kominfo Kota Binjai. All rights reserved.
+        &copy; {{ date('Y') }} EDULAB BINJAI. All rights reserved.
       </div>
     </div>
 

@@ -183,7 +183,7 @@
 <div class="container-dashboard">
     <div class="sidebar">
         <div>
-            <h2>SIPENA</h2>
+            <h2>SI-ABSEN EDULAB</h2>
             <a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
             <a href="{{ route('admin.rekap') }}"><i class="fas fa-file-alt"></i> Rekap Absensi</a>
         </div>
@@ -198,13 +198,13 @@
     <div class="main-content">
         <div class="card">
             <h3>Selamat Datang, Admin</h3>
-            <p>Berikut adalah ringkasan data absensi Non-ASN hari ini.</p>
+            <p>Berikut adalah ringkasan data absensi Tentor hari ini.</p>
         </div>
 
        <div class="stats-row">
     <div class="stat-card total">
         <div class="stat-content">
-            <div class="stat-title">Total Pegawai</div>
+            <div class="stat-title">Total Tentor</div>
             <div class="stat-number">{{ $totalPegawai }}</div>
         </div>
         <i class="fas fa-users stat-icon"></i>
