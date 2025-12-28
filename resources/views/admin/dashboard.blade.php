@@ -197,7 +197,7 @@
 
     <div class="main-content">
         <div class="card">
-            <h3>Selamat Datang, Admin</h3>
+            <h3>Selamat Datang, Admin EDULEB BINJAI</h3>
             <p>Berikut adalah ringkasan data absensi Tentor hari ini.</p>
         </div>
 
