@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Formmasuk;
 use App\Models\Formpulang;
-use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -12,11 +11,17 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        $totalPegawai = Pegawai::count();
+        // Total pegawai dari nama unik di form masuk
+        $totalPegawai = Formmasuk::distinct('nama')->count('nama');
+
         $sudahAbsen = Formmasuk::whereDate('tanggal', Carbon::today())->count();
         $belumAbsen = $totalPegawai - $sudahAbsen;
 
-        return view('admin.dashboard', compact('totalPegawai', 'sudahAbsen', 'belumAbsen'));
+        return view('admin.dashboard', compact(
+            'totalPegawai',
+            'sudahAbsen',
+            'belumAbsen'
+        ));
     }
 
     public function rekapAbsen(Request $request)
@@ -24,7 +29,6 @@ class AdminController extends Controller
         $tanggal = $request->input('tanggal');
         $nama = $request->input('nama');
 
-        // Query data masuk
         $dataMasuk = Formmasuk::query();
         $dataPulang = Formpulang::query();
 
@@ -40,20 +44,20 @@ class AdminController extends Controller
             $dataPulang->whereDate('tanggal', $tanggal);
         }
 
-        // Pagination untuk data masuk
+        // Pagination data masuk
         $dataMasuk = $dataMasuk
             ->orderBy('tanggal', 'desc')
-            ->paginate(10) // jumlah data per halaman
+            ->paginate(10)
             ->appends([
                 'nama' => $nama,
                 'tanggal' => $tanggal
             ]);
 
-        // Data pulang tetap ambil semua (tidak di-paginate)
+        // Data pulang (tanpa pagination)
         $dataPulang = $dataPulang->get();
 
-        // Hitung total pegawai, absen hari ini, dan belum absen
-        $totalPegawai = Pegawai::count();
+        // Statistik
+        $totalPegawai = Formmasuk::distinct('nama')->count('nama');
         $absenHariIni = Formmasuk::whereDate('tanggal', Carbon::today())->count();
         $belumAbsen = $totalPegawai - $absenHariIni;
 
